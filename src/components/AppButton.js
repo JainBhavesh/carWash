@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 
-export default class AppButton extends Component {
-  render() {
-    const {text, click} = this.props;
-    return (
-      <TouchableOpacity onPress={click}>
-        <Text style={[styles.login]}>{text}</Text>
-      </TouchableOpacity>
-    );
-  }
-}
+const AppButton = props => {
+  const {text, click} = props;
+  return (
+    <TouchableOpacity onPress={click}>
+      <Text style={[styles.login]}>{text}</Text>
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   login: {
@@ -23,3 +21,5 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 });
+
+export default AppButton;

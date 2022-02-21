@@ -58,7 +58,7 @@ const Login = props => {
               />
             ) : (
               <View style={{marginTop: 40, marginBottom: 20}}>
-                <AppButton text="Next" click={() => setLoading(true)} />
+                <AppButton text="Next" click={() => {}} />
               </View>
             )}
           </View>

@@ -7,7 +7,11 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepareError":"mkdir android/app/src/main/assets",
+    "prepare": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+    "generateApk":"cd android && ./gradlew assembleDebug",
+    "makeAPK": "yarn run prepare && yarn run generateApk"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.2.0",
