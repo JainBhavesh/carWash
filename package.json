@@ -8,9 +8,9 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "prepareError":"mkdir android/app/src/main/assets",
+    "prepareError": "mkdir android/app/src/main/assets",
     "prepare": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
-    "generateApk":"cd android && ./gradlew assembleDebug",
+    "generateApk": "cd android && ./gradlew assembleDebug",
     "makeAPK": "yarn run prepare && yarn run generateApk"
   },
   "dependencies": {
@@ -23,7 +23,8 @@
     "react-native-image-picker": "^4.7.3",
     "react-native-safe-area-context": "^3.4.1",
     "react-native-screens": "^3.12.0",
-    "react-native-snackbar": "^2.4.0"
+    "react-native-snackbar": "^2.4.0",
+    "react-native-stepper-ui": "0.0.9"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

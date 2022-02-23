@@ -4,7 +4,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Login from './../screens/Login';
+import Otp from './../screens/otp';
 import Privacy from '../screens/privacy';
+import AD_Reg_Naming from './../screens/AD_Reg_Naming';
+import Reg_Thank_You from './../screens/Reg_Thank_You';
+import BookNow from './../screens/BookNow';
+import Booking_Thank_You from './../screens/Booking_Thank_You';
+import Booking_Date_Time from './../screens/Booking_Date_Time';
 import Explore from '../screens/Explore';
 
 const Stack = createNativeStackNavigator();
@@ -144,8 +150,38 @@ const Navigation = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
+          name="BookNow"
+          component={BookNow}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Reg_Thank_You"
+          component={Reg_Thank_You}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Booking_Thank_You"
+          component={Booking_Thank_You}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Booking_Date_Time"
+          component={Booking_Date_Time}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name="Dashboard"
           component={HomeTabs}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="AD_Reg_Naming"
+          component={AD_Reg_Naming}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Otp"
+          component={Otp}
           options={{headerShown: false}}
         />
         <Stack.Screen

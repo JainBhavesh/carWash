@@ -61,7 +61,7 @@ const Login = props => {
                 <AppButton
                   text="Next"
                   click={() => {
-                    props.navigation.navigate('Dashboard');
+                    props.navigation.navigate('Otp');
                   }}
                 />
               </View>

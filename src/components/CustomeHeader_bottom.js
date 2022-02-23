@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, StyleSheet, Dimensions} from 'react-native';
 const {fontScale} = Dimensions.get('window');
 
-const CustomeHeader = props => {
+const CustomeHeader_bottom = props => {
   const {headerText} = props;
   return (
     <View style={styles.head}>
@@ -15,16 +15,15 @@ const CustomeHeader = props => {
 
 const styles = StyleSheet.create({
   head: {
-    height: 60,
+    height: 30,
     backgroundColor: 'black',
     elevation: 5,
   },
   textstyle: {
+    marginBottom: 10,
     color: 'white',
-    fontSize: 22 / fontScale,
-    fontWeight: 'bold',
+    fontSize: 15 / fontScale,
     paddingLeft: 20,
-    marginTop: 10,
   },
   container: {
     flex: 1,
@@ -32,4 +31,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomeHeader;
+export default CustomeHeader_bottom;
