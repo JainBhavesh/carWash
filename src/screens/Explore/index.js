@@ -1,23 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   Image,
-  TextInput,
   ScrollView,
   SafeAreaView,
-  ActivityIndicator,
 } from 'react-native';
 import AppButton from '../../components/AppButton';
 import styles from '../../Style/styles';
 
-const Login = props => {
-  const [mobileNo, setMobileNo] = useState();
-  const [loading, setLoading] = useState(false);
-
-  const submit = async () => {};
-
+const Explore = props => {
   return (
     <View style={{height: '100%', backgroundColor: 'white'}}>
       <SafeAreaView>
@@ -31,16 +24,6 @@ const Login = props => {
             </View>
             <View style={styles._body_view}>
               <Text style={styles.loginTitle}>Login & Register</Text>
-              <View style={styles.SectionStyle}>
-                <TextInput
-                  style={styles.textbox}
-                  placeholder="Mobile Number"
-                  placeholderTextColor="#acabab"
-                  keyboardType="phone-pad"
-                  value={mobileNo}
-                  onChangeText={text => setMobileNo(text)}
-                />
-              </View>
             </View>
             <View style={styles._text_label}>
               <TouchableOpacity
@@ -50,22 +33,9 @@ const Login = props => {
                 </Text>
               </TouchableOpacity>
             </View>
-            {loading ? (
-              <ActivityIndicator
-                style={{marginTop: 8}}
-                size="large"
-                color="#23B9CE"
-              />
-            ) : (
-              <View style={{marginTop: 40, marginBottom: 20}}>
-                <AppButton
-                  text="Next"
-                  click={() => {
-                    props.navigation.navigate('Dashboard');
-                  }}
-                />
-              </View>
-            )}
+            <View style={{marginTop: 40, marginBottom: 20}}>
+              <AppButton text="Next" click={() => {}} />
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -73,4 +43,4 @@ const Login = props => {
   );
 };
 
-export default Login;
+export default Explore;

@@ -1,10 +1,11 @@
 import * as React from 'react';
-import {Image} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Login from './../screens/Login';
 import Privacy from '../screens/privacy';
+import Explore from '../screens/Explore';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -13,22 +14,12 @@ const HomeTabs = () => {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        style: {
-          backgroundColor: 'black',
-          justifyContent: 'space-between',
-          borderTopRightRadius: 20,
-          borderTopLeftRadius: 20,
-          paddingBottom: 10,
-          paddingTop: 5,
-          height: 70,
-          zIndex: 100000,
-        },
         labelStyle: {
           fontWeight: 'bold',
-          fontSize: 12,
+          fontSize: 13,
         },
-        activeTintColor: '#a58430',
-        inactiveTintColor: 'white',
+        activeTintColor: 'black',
+        inactiveTintColor: 'grey',
         tabBar: props => (
           <View style={styles.navigatorContainer}>
             <BottomTabBar {...props} />
@@ -50,71 +41,91 @@ const HomeTabs = () => {
       }}>
       <Tab.Screen
         name="Home"
+        component={Explore}
         options={{
           tabBarIcon: ({focused}) =>
             focused ? (
-              <Image
-                source={require('./../assets/bottom-home-selected.png')}
-                style={{height: 24, width: 24}}
-              />
+              <View style={[styles.tabParent, styles.borderBlack]}>
+                <Image
+                  source={require('./../assets/bottom-home-activated.png')}
+                  style={[styles.tabImage]}
+                />
+              </View>
             ) : (
-              <Image
-                source={require('./../assets/bottom-home-selected.png')}
-                style={{height: 24, width: 24}}
-              />
+              <View style={[styles.tabParent, styles.borderWhite]}>
+                <Image
+                  source={require('./../assets/bottom-home.png')}
+                  style={styles.tabImage}
+                />
+              </View>
             ),
         }}
       />
       <Tab.Screen
-        name="Services"
+        name="Explore"
+        component={Explore}
         options={{
           tabBarIcon: ({focused}) =>
             focused ? (
-              <Image
-                source={require('./../assets/bottom-car.png')}
-                style={{height: 24, width: 24}}
-              />
+              <View style={[styles.tabParent, styles.borderBlack]}>
+                <Image
+                  source={require('./../assets/bottom-car-activated.png')}
+                  style={[styles.tabImage, styles.borderWhite]}
+                />
+              </View>
             ) : (
-              <Image
-                source={require('./../assets/bottom-car.png')}
-                style={{height: 24, width: 24}}
-              />
+              <View style={[styles.tabParent, styles.borderWhite]}>
+                <Image
+                  source={require('./../assets/bottom-car.png')}
+                  style={styles.tabImage}
+                />
+              </View>
             ),
         }}
       />
 
       <Tab.Screen
         name="Notification"
+        component={Explore}
         options={{
           tabBarIcon: ({focused}) =>
             focused ? (
-              <Image
-                source={require('./../assets/bottom-notification.png')}
-                style={{height: 22, width: 30}}
-              />
+              <View style={[styles.tabParent, styles.borderBlack]}>
+                <Image
+                  source={require('./../assets/bottom-notification-activated.png')}
+                  style={styles.tabImage}
+                />
+              </View>
             ) : (
-              <Image
-                source={require('./../assets/bottom-notification.png')}
-                style={{height: 22, width: 30}}
-              />
+              <View style={[styles.tabParent, styles.borderWhite]}>
+                <Image
+                  source={require('./../assets/bottom-notification.png')}
+                  style={styles.tabImage}
+                />
+              </View>
             ),
         }}
       />
 
       <Tab.Screen
         name="Profile"
+        component={Explore}
         options={{
           tabBarIcon: ({focused}) =>
             focused ? (
-              <Image
-                source={require('./../assets/bottom-profile.png')}
-                style={{height: 30, width: 24}}
-              />
+              <View style={[styles.tabParent, styles.borderBlack]}>
+                <Image
+                  source={require('./../assets/bottom-profile-activated.png')}
+                  style={styles.tabImage}
+                />
+              </View>
             ) : (
-              <Image
-                source={require('./../assets/bottom-profile.png')}
-                style={{height: 30, width: 20}}
-              />
+              <View style={[styles.tabParent, styles.borderWhite]}>
+                <Image
+                  source={require('./../assets/bottom-profile.png')}
+                  style={styles.tabImage}
+                />
+              </View>
             ),
         }}
       />
@@ -146,5 +157,25 @@ const Navigation = () => {
     </NavigationContainer>
   );
 };
-
+let styles = StyleSheet.create({
+  tabParent: {
+    borderTopWidth: 4,
+    width: 25,
+    height: '100%',
+    justifyContent: 'center',
+  },
+  borderBlack: {
+    borderColor: 'balck',
+  },
+  borderWhite: {
+    borderColor: 'white',
+  },
+  tabImage: {
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 20,
+    width: 20,
+  },
+});
 export default Navigation;
