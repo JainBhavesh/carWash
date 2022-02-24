@@ -22,68 +22,77 @@ const Booking_Thank_You = props => {
   const submit = async () => {};
   const [active, setActive] = useState(0);
   return (
-    <View style={{height: '100%', backgroundColor: 'white'}}>
+    <View
+      style={{
+        height: '100%',
+        backgroundColor: 'white',
+        display: 'flex',
+        justifyContent: 'space-between',
+      }}>
       <SafeAreaView>
         <ScrollView keyboardShouldPersistTaps="handled">
-          <View style={{height: '100%'}}>
-            <CustomeHeader headerText="Booking: Pure-hand Car Wash" />
-            <CustomeHeader_bottom headerText="30 Minutes, Payment on the Spot" />
-            <View>
-              <View
-                style={{
-                  marginVertical: 30,
-                  marginHorizontal: 10,
-                  opacity: 1,
-                  color: 'white',
-                  borderRadius: 10,
-                }}>
-                <Stepper
-                  style={{backgroundColor: '#a1a1a1'}}
-                  active={active}
-                  content={content}
-                  onNext={() => setActive(p => p + 1)}
-                  onBack={() => setActive(p => p - 1)}
-                  onFinish={() => Alert.alert('Finish')}
-                />
-              </View>
-              <Image
-                style={{marginLeft: 65, marginTop: 50}}
-                source={require('../../assets/Done250.jpg')}
-              />
-              <View style={{marginLeft: 100}}>
-                <Text style={{marginLeft: 75, fontWeight: 'bold'}}>DONE!</Text>
-                <Text style={{marginLeft: 13, fontWeight: 'bold'}}>
-                  Please arrive within 10mins,
-                </Text>
-              </View>
-              <Text style={{marginLeft: 70, fontWeight: 'bold'}}>
-                or booking will be cancelled automatically
-              </Text>
-            </View>
+          <CustomeHeader headerText="Booking: Pure-hand Car Wash" />
+          <CustomeHeader_bottom headerText="30 Minutes, Payment on the Spot" />
+          <View
+            style={{
+              marginVertical: 30,
+              marginHorizontal: 10,
+              opacity: 1,
+              color: 'white',
+              borderRadius: 10,
+            }}>
+            <Stepper
+              style={{backgroundColor: '#a1a1a1'}}
+              active={active}
+              content={content}
+              onNext={() => setActive(p => p + 1)}
+              onBack={() => setActive(p => p - 1)}
+              onFinish={() => Alert.alert('Finish')}
+            />
+          </View>
+          <View
+            style={{
+              alignSelf: 'center',
+            }}>
+            <Image source={require('../../assets/Done250.jpg')} />
+            <Text
+              style={{
+                textAlign: 'center',
+                fontWeight: 'bold',
+                color: 'black',
+              }}>
+              DONE!
+            </Text>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontWeight: 'bold',
+                color: 'black',
+              }}>
+              Please arrive within 10mins,
+            </Text>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontWeight: 'bold',
+                color: 'black',
+              }}>
+              or booking will be cancelled automatically
+            </Text>
+          </View>
+
+          <View>
+            <AppButton
+              text="Back to My Bookings"
+              click={() => props.navigation.navigate('BookNow')}
+            />
+            <AppButton
+              text="Done"
+              click={() => props.navigation.navigate('Dashboard')}
+            />
           </View>
         </ScrollView>
       </SafeAreaView>
-      <View
-        style={{
-          margin: 10,
-          marginTop: 100,
-          bottom: 0,
-        }}>
-        <AppButton
-          text="Back to My Bookings"
-          click={() => props.navigation.navigate('BookNow')}
-        />
-      </View>
-      <View
-        style={{
-          margin: 10,
-          bottom: 0,
-        }}>
-        <AppButton
-          text="Done"
-          click={() => props.navigation.navigate('Dashboard')}
-        />
-      </View>
     </View>
   );
 };

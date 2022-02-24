@@ -22,6 +22,15 @@ const Login = props => {
     <View style={{height: '100%', backgroundColor: 'white'}}>
       <SafeAreaView>
         <ScrollView keyboardShouldPersistTaps="handled">
+          <View
+            style={{
+              position: 'absolute',
+              right: 20,
+              top: 25,
+              margin: 10,
+            }}>
+            <Image source={require('./../../assets/Vector.png')} />
+          </View>
           <View style={[styles.appPadding]}>
             <View style={[styles.logo]}>
               <Image

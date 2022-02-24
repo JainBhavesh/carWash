@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 17,
     borderWidth: 2,
-    borderColor: 'grey',
+    borderColor: 'rgba(0, 0, 0, 1)',
     padding: 20,
   },
 });

@@ -20,7 +20,7 @@ let styles = StyleSheet.create({
     alignSelf: 'center',
   },
   logo: {
-    marginTop: 50,
+    marginTop: 40,
     marginBottom: 20,
   },
   loginTitle: {

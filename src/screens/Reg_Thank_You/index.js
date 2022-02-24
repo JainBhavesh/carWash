@@ -21,7 +21,12 @@ const Reg_Thank_You = props => {
   const submit = async () => {};
   const [active, setActive] = useState(0);
   return (
-    <View style={{height: '100%', backgroundColor: 'white'}}>
+    <View
+      style={{
+        height: '100%',
+        backgroundColor: 'white',
+        justifyContent: 'space-between',
+      }}>
       <SafeAreaView>
         <ScrollView keyboardShouldPersistTaps="handled">
           <View style={{height: '100%'}}>
@@ -44,15 +49,23 @@ const Reg_Thank_You = props => {
                   onFinish={() => Alert.alert('Finish')}
                 />
               </View>
-              <Image
-                style={{marginLeft: 65, marginTop: 50}}
-                source={require('../../assets/Done250.jpg')}
-              />
-              <View style={{marginLeft: 100}}>
-                <Text style={{marginLeft: 50, fontWeight: 'bold'}}>
+
+              <View style={{alignSelf: 'center'}}>
+                <Image source={require('../../assets/Done250.jpg')} />
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontWeight: 'bold',
+                    color: 'black',
+                  }}>
                   Congratulation!
                 </Text>
-                <Text style={{marginLeft: 30, fontWeight: 'bold'}}>
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    fontWeight: 'bold',
+                    color: 'black',
+                  }}>
                   Registration Success
                 </Text>
               </View>
