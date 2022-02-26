@@ -28,7 +28,7 @@ const Otp = props => {
   const [active, setActive] = useState(0);
   return (
     <SafeAreaView style={{flex: 1}}>
-      <CustomeHeader headerText="Registration" />
+      <CustomeHeader headerText="Login" />
       <KeyboardAwareScrollView
         extraScrollHeight={0}
         keyboardShouldPersistTaps="handled"

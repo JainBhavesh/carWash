@@ -124,8 +124,10 @@ const BookNow = props => {
   return (
     <SafeAreaView style={{backgroundColor: 'black'}}>
       <StatusBar backgroundColor={'black'}></StatusBar>
-      <CustomeHeader headerText="Booking: Pure-hand Car Wash" />
-      <CustomeHeader_bottom headerText="30 Minutes, Payment on the Spot" />
+      <CustomeHeader
+        headerText="Booking: Pure-hand Car Wash"
+        secoundaryText="30 Minutes, Payment on the Spot"
+      />
       <KeyboardAwareScrollView
         extraScrollHeight={0}
         keyboardShouldPersistTaps="handled"

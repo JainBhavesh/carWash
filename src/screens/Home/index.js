@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, Text, View, Image, ImageBackground} from 'react-native';
+import {Text, View, Image, ImageBackground} from 'react-native';
 import {home_header_img, logo, my_bookings_icn} from '../../assets';
 import styles from './styles';
 
