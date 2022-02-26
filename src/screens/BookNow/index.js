@@ -8,6 +8,7 @@ import {
   ScrollView,
   SafeAreaView,
   StyleSheet,
+  Dimensions,
 } from 'react-native';
 import AppButton from '../../components/AppButton';
 import styles from '../../Style/styles';
@@ -16,7 +17,9 @@ import CustomeHeader_bottom from '../../components/CustomeHeader_bottom';
 import AppBack from '../../components/AppBack';
 import Stepper from '../../components/Stepper';
 import FloatingTextBox from '../../components/FloatingTextBox';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
+const {height} = Dimensions.get('window');
 const BookNow = props => {
   const [branch, setBranch] = useState();
   const [plateNo, setPlateNo] = useState();
@@ -135,29 +138,37 @@ const BookNow = props => {
     );
   };
   return (
-    <View style={[styles.fullHeight, {backgroundColor: 'white'}]}>
-      <SafeAreaView style={{backgroundColor: 'black'}}>
-        <CustomeHeader headerText="Booking: Pure-hand Car Wash" />
-        <CustomeHeader_bottom headerText="30 Minutes, Payment on the Spot" />
-        <ScrollView
-          keyboardShouldPersistTaps="handled"
-          style={{backgroundColor: 'white'}}>
-          <View style={[styles.appPadding, styles.fullHeight]}>
-            <Stepper active={active} content={content} />
-            {active == 0 && basicInfo()}
-            {active == 1 && dateTime()}
-            {active == 2 && thankYou()}
-            {active !== 2 && (
-              <View style={{marginTop: 20}}>
-                <AppBack click={() => props.navigation.goBack()} />
+    <SafeAreaView style={{backgroundColor: 'black'}}>
+      <CustomeHeader headerText="Booking: Pure-hand Car Wash" />
+      <CustomeHeader_bottom headerText="30 Minutes, Payment on the Spot" />
+      <KeyboardAwareScrollView
+        extraScrollHeight={0}
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{height: height - 50, backgroundColor: '#fff'}}>
+        <View style={[styles.appPadding, styles.fullHeight]}>
+          <Stepper active={active} content={content} />
+          {active == 0 && basicInfo()}
+          {active == 1 && dateTime()}
+          {active == 2 && thankYou()}
+        </View>
+        {active !== 2 && (
+          <View
+            style={[
+              styles.appPadding,
+              {
+                marginTop: 20,
+                
+                flex: 1,
+                justifyContent: 'center',
+              },
+            ]}>
+            <AppBack click={() => props.navigation.goBack()} />
 
-                <AppButton text="Next" click={() => setActive(active + 1)} />
-              </View>
-            )}
+            <AppButton text="Next" click={() => setActive(active + 1)} />
           </View>
-        </ScrollView>
-      </SafeAreaView>
-    </View>
+        )}
+      </KeyboardAwareScrollView>
+    </SafeAreaView>
   );
 };
 export default BookNow;

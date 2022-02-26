@@ -9,7 +9,7 @@ let styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   fullHeight: {
-    height: '100%',
+    // height: '100%',
   },
   pt20: {
     paddingTop: 20,
