@@ -6,6 +6,7 @@ import {
   ScrollView,
   SafeAreaView,
   StyleSheet,
+  Dimensions
 } from 'react-native';
 import AppButton from '../../components/AppButton';
 import styles from '../../Style/styles';
@@ -14,7 +15,10 @@ import Stepper from '../../components/Stepper';
 import FloatingTextBox from '../../components/FloatingTextBox';
 import AppBack from '../../components/AppBack';
 import {Picker} from '@react-native-picker/picker';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import FloatingDropDown from '../../components/FloatingDropdown';
+
+const {height} = Dimensions.get('window');
 
 const Registration = props => {
   const [mobileNo, setMobileNo] = useState();
@@ -125,10 +129,14 @@ const Registration = props => {
   };
 
   return (
-    <View style={{height: '100%', backgroundColor: 'white'}}>
+    
       <SafeAreaView>
         <CustomeHeader headerText="Registration" />
-        <ScrollView keyboardShouldPersistTaps="handled">
+        <KeyboardAwareScrollView
+        extraScrollHeight={0}        
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{ height: height - 50}}
+         >
           <View
             style={[
               styles.appPadding,
@@ -186,9 +194,9 @@ const Registration = props => {
               </View>
             )}
           </View>
-        </ScrollView>
+        </KeyboardAwareScrollView>
       </SafeAreaView>
-    </View>
+    
   );
 };
 
