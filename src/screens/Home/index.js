@@ -5,7 +5,7 @@ import styles from './styles';
 
 const Home = () => {
   return (
-    <SafeAreaView style={styles.safeAreaView}>
+    <View style={styles.safeAreaView}>
       <ImageBackground
         source={home_header_img}
         style={styles.homeHeaderContainer}>
@@ -56,12 +56,11 @@ const Home = () => {
         </View>
 
         <View style={[styles.row, styles.contentHeader]}>
-            <View style={{backgroundColor: '#000', width: 5}} />
-            <Text style={styles.title}>Working Hours</Text>
+          <View style={{backgroundColor: '#000', width: 5}} />
+          <Text style={styles.title}>Working Hours</Text>
         </View>
-
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
