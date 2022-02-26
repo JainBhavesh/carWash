@@ -10,6 +10,7 @@ import BookNow from './../screens/BookNow';
 import Booking_Thank_You from './../screens/Booking_Thank_You';
 import Booking_Date_Time from './../screens/Booking_Date_Time';
 import Explore from '../screens/Explore';
+import Home from '../screens/Home';
 import Registration from '../screens/Registration';
 
 const Stack = createNativeStackNavigator();
@@ -46,8 +47,9 @@ const HomeTabs = () => {
       }}>
       <Tab.Screen
         name="Home"
-        component={Explore}
+        component={Home}
         options={{
+          headerShown: false,
           tabBarIcon: ({focused}) =>
             focused ? (
               <View style={[styles.tabParent, styles.borderBlack]}>
