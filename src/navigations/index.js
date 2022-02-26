@@ -70,6 +70,7 @@ const HomeTabs = () => {
         name="Explore"
         component={Explore}
         options={{
+          headerShown: false,
           tabBarIcon: ({focused}) =>
             focused ? (
               <View style={[styles.tabParent, styles.borderBlack]}>
