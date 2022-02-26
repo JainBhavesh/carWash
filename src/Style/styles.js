@@ -69,6 +69,12 @@ let styles = StyleSheet.create({
     width: '100%',
     color: 'grey',
   },
+  bottomBotton: {
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
 });
 
 export default styles;

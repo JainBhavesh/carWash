@@ -9,6 +9,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Dimensions,
+  StatusBar,
 } from 'react-native';
 import AppButton from '../../components/AppButton';
 import styles from '../../Style/styles';
@@ -18,6 +19,7 @@ import AppBack from '../../components/AppBack';
 import Stepper from '../../components/Stepper';
 import FloatingTextBox from '../../components/FloatingTextBox';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import FloatingDropDown from '../../components/FloatingDropdown';
 
 const {height} = Dimensions.get('window');
 const BookNow = props => {
@@ -39,7 +41,10 @@ const BookNow = props => {
   ];
   const submit = async () => {};
   const [active, setActive] = useState(0);
-
+  const option = [
+    {label: 'Kwun Tong', value: '1'},
+    {label: 'Kwun Tong', value: '2'},
+  ];
   const basicInfo = () => {
     return (
       <View>
@@ -63,18 +68,14 @@ const BookNow = props => {
 
   const dateTime = () => {
     return (
-      <View>
-        <View style={{margin: 15}}>
-          <TextInput
-            style={styles.textbox}
-            placeholder="Branch"
-            placeholderTextColor="#acabab"
-            keyboardType="phone-pad"
-            value={branch}
-            onChangeText={text => setBranch(text)}
-          />
-        </View>
-        <View style={{margin: 15}}>
+      <View style={{marginVertical: 40}}>
+        <FloatingDropDown
+          selectItem={text => setBranch(text)}
+          value={branch}
+          option={option}
+          label={'Branch'}
+        />
+        <View>
           <TextInput
             style={styles.textbox}
             placeholder="Date"
@@ -120,51 +121,43 @@ const BookNow = props => {
             or booking will be cancelled automatically
           </Text>
         </View>
-
-        <View>
-          <View style={{marginBottom: 20}}>
-            <AppButton
-              text="Back to My Bookings"
-              click={() => props.navigation.navigate('BookNow')}
-            />
-          </View>
-
-          <AppButton
-            text="Done"
-            click={() => props.navigation.navigate('Dashboard')}
-          />
-        </View>
       </View>
     );
   };
   return (
     <SafeAreaView style={{backgroundColor: 'black'}}>
+      <StatusBar backgroundColor={'black'}></StatusBar>
       <CustomeHeader headerText="Booking: Pure-hand Car Wash" />
       <CustomeHeader_bottom headerText="30 Minutes, Payment on the Spot" />
       <KeyboardAwareScrollView
         extraScrollHeight={0}
         keyboardShouldPersistTaps="handled"
-        contentContainerStyle={{height: height - 50, backgroundColor: '#fff'}}>
-        <View style={[styles.appPadding, styles.fullHeight]}>
+        contentContainerStyle={{height: height - 80, backgroundColor: '#fff'}}>
+        <View style={[styles.appPadding]}>
           <Stepper active={active} content={content} />
           {active == 0 && basicInfo()}
           {active == 1 && dateTime()}
           {active == 2 && thankYou()}
         </View>
-        {active !== 2 && (
-          <View
-            style={[
-              styles.appPadding,
-              {
-                marginTop: 20,
-                
-                flex: 1,
-                justifyContent: 'center',
-              },
-            ]}>
+        {active !== 2 ? (
+          <View style={styles.bottomBotton}>
             <AppBack click={() => props.navigation.goBack()} />
 
             <AppButton text="Next" click={() => setActive(active + 1)} />
+          </View>
+        ) : (
+          <View style={styles.bottomBotton}>
+            <View style={{marginBottom: 20}}>
+              <AppButton
+                text="Back to My Bookings"
+                click={() => props.navigation.navigate('BookNow')}
+              />
+            </View>
+
+            <AppButton
+              text="Done"
+              click={() => props.navigation.navigate('Dashboard')}
+            />
           </View>
         )}
       </KeyboardAwareScrollView>

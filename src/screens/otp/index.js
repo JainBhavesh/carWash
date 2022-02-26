@@ -32,7 +32,7 @@ const Otp = props => {
       <KeyboardAwareScrollView
         extraScrollHeight={0}
         keyboardShouldPersistTaps="handled"
-        contentContainerStyle={{height: height - 50, backgroundColor: '#fff'}}>
+        contentContainerStyle={[styles.bg, {height: height - 60}]}>
         <View style={[styles.appPadding]}>
           <View
             style={{
@@ -74,8 +74,6 @@ const Otp = props => {
           style={[
             styles.appPadding,
             {
-              margin: 10,
-              marginTop: 80,
               flex: 1,
               justifyContent: 'flex-end',
             },

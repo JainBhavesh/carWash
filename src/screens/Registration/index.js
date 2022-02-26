@@ -6,7 +6,7 @@ import {
   ScrollView,
   SafeAreaView,
   StyleSheet,
-  Dimensions
+  Dimensions,
 } from 'react-native';
 import AppButton from '../../components/AppButton';
 import styles from '../../Style/styles';
@@ -129,74 +129,57 @@ const Registration = props => {
   };
 
   return (
-    
-      <SafeAreaView>
-        <CustomeHeader headerText="Registration" />
-        <KeyboardAwareScrollView
-        extraScrollHeight={0}        
+    <SafeAreaView>
+      <CustomeHeader headerText="Registration" />
+      <KeyboardAwareScrollView
+        extraScrollHeight={0}
         keyboardShouldPersistTaps="handled"
-        contentContainerStyle={{ height: height - 50}}
-         >
+        contentContainerStyle={[styles.bg, {height: height - 60}]}>
+        <View style={[styles.appPadding]}>
           <View
-            style={[
-              styles.appPadding,
-              {
-                height: '100%',
-                justifyContent: 'space-evenly',
-                flex: 1,
-                alignContent: 'space-around',
-              },
-            ]}>
-            <View
-              style={{
-                marginVertical: 30,
-                marginHorizontal: 10,
-                opacity: 1,
-                color: 'white',
-                borderRadius: 10,
-              }}>
-              <Stepper active={active} content={content} />
-            </View>
-            {active == 0 && verification()}
-            {active == 1 && basicInfo()}
-            {active == 2 && thankYou()}
-            {active !== 2 ? (
-              <View
-                style={{
-                  margin: 10,
-                  marginTop: 80,
-                  position: 'relative',
-                }}>
-                <AppBack click={() => props.navigation.goBack()} />
-
-                <AppButton
-                  text="Next"
-                  click={() => {
-                    if (active == 2) {
-                      props.navigation.navigate('Otp');
-                    }
-                    setActive(active + 1);
-                  }}
-                />
-              </View>
-            ) : (
-              <View style={{marginTop: '30%'}}>
-                <AppButton
-                  text="Enter"
-                  click={() => {
-                    if (active == 2) {
-                      props.navigation.navigate('BookNow');
-                      return;
-                    }
-                    setActive(active + 1);
-                  }}
-                />
-              </View>
-            )}
+            style={{
+              marginVertical: 30,
+              marginHorizontal: 10,
+              opacity: 1,
+              color: 'white',
+              borderRadius: 10,
+            }}>
+            <Stepper active={active} content={content} />
           </View>
-        </KeyboardAwareScrollView>
-      </SafeAreaView>
-    
+          {active == 0 && verification()}
+          {active == 1 && basicInfo()}
+          {active == 2 && thankYou()}
+        </View>
+        {active !== 2 ? (
+          <View style={styles.bottomBotton}>
+            <AppBack click={() => props.navigation.goBack()} />
+
+            <AppButton
+              text="Next"
+              click={() => {
+                if (active == 2) {
+                  props.navigation.navigate('Otp');
+                }
+                setActive(active + 1);
+              }}
+            />
+          </View>
+        ) : (
+          <View style={styles.bottomBotton}>
+            <AppButton
+              text="Enter"
+              click={() => {
+                if (active == 2) {
+                  props.navigation.navigate('BookNow');
+                  return;
+                }
+                setActive(active + 1);
+              }}
+            />
+          </View>
+        )}
+      </KeyboardAwareScrollView>
+    </SafeAreaView>
   );
 };
 
