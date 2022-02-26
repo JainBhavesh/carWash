@@ -14,6 +14,8 @@ import AppButton from '../../components/AppButton';
 import styles from '../../Style/styles';
 import CustomeHeader from '../../components/CustomeHeader';
 import CustomeHeader_bottom from '../../components/CustomeHeader_bottom';
+import AppBack from '../../components/AppBack';
+
 const BookNow = props => {
   const [mobileNo, setMobileNo] = useState();
   const [loading, setLoading] = useState(false);
@@ -34,29 +36,26 @@ const BookNow = props => {
   return (
     <View style={{height: '100%', backgroundColor: 'white'}}>
       <SafeAreaView>
+        <CustomeHeader headerText="Booking: Pure-hand Car Wash" />
+        <CustomeHeader_bottom headerText="30 Minutes, Payment on the Spot" />
         <ScrollView keyboardShouldPersistTaps="handled">
-          <View style={{height: '100%'}}>
-            <CustomeHeader headerText="Booking: Pure-hand Car Wash" />
-            <CustomeHeader_bottom headerText="30 Minutes, Payment on the Spot" />
+          <View
+            style={[
+              {
+                height: 500,
+                position: 'relative',
+              },
+              styles.appPadding,
+            ]}>
             <View>
               <View
                 style={{
                   marginVertical: 30,
-                  marginHorizontal: 10,
                   opacity: 1,
                   color: 'white',
                   borderRadius: 10,
-                }}>
-                <Stepper
-                  style={{backgroundColor: '#a1a1a1'}}
-                  active={active}
-                  content={content}
-                  onNext={() => setActive(p => p + 1)}
-                  onBack={() => setActive(p => p - 1)}
-                  onFinish={() => Alert.alert('Finish')}
-                />
-              </View>
-              <View style={{margin: 15}}>
+                }}></View>
+              <View style={{marginTop: 15}}>
                 <TextInput
                   style={styles.textbox}
                   placeholder="Plate Number (eg. AB1234)"
@@ -67,26 +66,15 @@ const BookNow = props => {
                 />
               </View>
             </View>
-            <View style={{display: 'flex', flexDirection: 'row'}}>
-              <View
-                style={{
-                  flex: 1,
-                  marginTop: 0,
-                  marginLeft: 40,
-                  marginRight: 10,
-                }}>
-                <TouchableOpacity
-                  onPress={() => props.navigation.goBack()}
-                  style={custStyles.float}>
-                  <Image source={require('../../assets/back.png')} />
-                </TouchableOpacity>
-              </View>
-            </View>
             <View
               style={{
-                margin: 10,
-                marginTop: 80,
+                position: 'absolute',
+                bottom: 0,
+                width: '100%',
+                left: 20,
               }}>
+              <AppBack click={() => props.navigate.goBack()} />
+
               <AppButton
                 text="Next"
                 click={() => props.navigation.navigate('Booking_Date_Time')}
