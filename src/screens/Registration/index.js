@@ -157,7 +157,7 @@ const Registration = props => {
                   marginTop: 80,
                   position: 'relative',
                 }}>
-                <AppBack click={() => props.navigate.goBack()} />
+                <AppBack click={() => props.navigation.goBack()} />
 
                 <AppButton
                   text="Next"
@@ -176,6 +176,7 @@ const Registration = props => {
                   click={() => {
                     if (active == 2) {
                       props.navigation.navigate('BookNow');
+                      return;
                     }
                     setActive(active + 1);
                   }}

@@ -2,8 +2,9 @@ import React from 'react';
 import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 
 const AppBack = props => {
+  const {click} = props;
   return (
-    <TouchableOpacity onPress={() => props.click} style={custStyles.float}>
+    <TouchableOpacity onPress={click} style={custStyles.float}>
       <Image source={require('../assets/back.png')} />
     </TouchableOpacity>
   );

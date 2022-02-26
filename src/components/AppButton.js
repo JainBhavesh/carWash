@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
+import React from 'react';
+import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 const AppButton = props => {
-  const {text, click, style} = props;
+  const {text, click} = props;
   return (
     <TouchableOpacity onPress={click}>
       <Text style={[styles.login]}>{text}</Text>

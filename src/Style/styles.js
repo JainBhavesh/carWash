@@ -5,8 +5,8 @@ const {width, fontScale} = Dimensions.get('window');
 
 let styles = StyleSheet.create({
   appPadding: {
-    paddingRight: 20,
-    paddingLeft: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
   },
   fullHeight: {
     height: '100%',
