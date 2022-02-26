@@ -70,17 +70,6 @@ const Otp = props => {
                 click={() => props.navigation.navigate('Registration')}
               />
             </View>
-
-            <View
-              style={{
-                margin: 10,
-                bottom: 0,
-              }}>
-              <AppButton
-                text="Enter"
-                click={() => props.navigation.navigate('BookNow')}
-              />
-            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
