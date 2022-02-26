@@ -8,11 +8,13 @@ import {
   ScrollView,
   SafeAreaView,
   ActivityIndicator,
+  Dimensions
 } from 'react-native';
 import AppButton from '../../components/AppButton';
 import FloatingTextBox from '../../components/FloatingTextBox';
 import styles from '../../Style/styles';
 
+const { height } = Dimensions.get('window')
 const Login = props => {
   const [mobileNo, setMobileNo] = useState();
   const [loading, setLoading] = useState(false);
@@ -20,9 +22,9 @@ const Login = props => {
   const submit = async () => {};
 
   return (
-    <View style={{height: '100%', backgroundColor: 'white'}}>
-      <SafeAreaView>
-        <ScrollView keyboardShouldPersistTaps="handled">
+    // <View style={{height: '100%', backgroundColor: 'white', borderStartColor: 'yellow'}}>
+      <SafeAreaView style={{ flex: 1}}>
+        <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{height: height}}>
           <View
             style={{
               position: 'absolute',
@@ -66,7 +68,10 @@ const Login = props => {
                 </Text>
               </TouchableOpacity>
             </View>
-            {loading ? (
+           
+          </View>
+          <View style={[styles.appPadding, { flex: 1, justifyContent: 'flex-end'}]}>
+          {loading ? (
               <ActivityIndicator
                 style={{marginTop: 8}}
                 size="large"
@@ -85,7 +90,7 @@ const Login = props => {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </View>
+    // </View>
   );
 };
 
