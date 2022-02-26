@@ -90,37 +90,34 @@ const BookNow = props => {
 
   const thankYou = () => {
     return (
-      <View>
-        <View
+      <View
+        style={{
+          marginTop: '20%',
+          alignItems: 'center',
+        }}>
+        <Image source={require('../../assets/Done250.jpg')} />
+        <Text
           style={{
-            alignSelf: 'center',
-            marginTop: '30%',
-            marginBottom: '30%',
+            textAlign: 'center',
+            fontWeight: 'bold',
+            color: 'black',
           }}>
-          <Image source={require('../../assets/Done250.jpg')} />
-          <Text
-            style={{
-              textAlign: 'center',
-              fontWeight: 'bold',
-              color: 'black',
-            }}>
-            DONE!
-          </Text>
-          <Text
-            style={{
-              textAlign: 'center',
-              color: 'grey',
-            }}>
-            Please arrive within 10mins,
-          </Text>
-          <Text
-            style={{
-              textAlign: 'center',
-              color: 'grey',
-            }}>
-            or booking will be cancelled automatically
-          </Text>
-        </View>
+          DONE!
+        </Text>
+        <Text
+          style={{
+            textAlign: 'center',
+            color: 'grey',
+          }}>
+          Please arrive within 10mins,
+        </Text>
+        <Text
+          style={{
+            textAlign: 'center',
+            color: 'grey',
+          }}>
+          or booking will be cancelled automatically
+        </Text>
       </View>
     );
   };
@@ -133,7 +130,7 @@ const BookNow = props => {
         extraScrollHeight={0}
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{height: height - 80, backgroundColor: '#fff'}}>
-        <View style={[styles.appPadding]}>
+        <View style={[styles.appPadding, {marginVertical: 30}]}>
           <Stepper active={active} content={content} />
           {active == 0 && basicInfo()}
           {active == 1 && dateTime()}

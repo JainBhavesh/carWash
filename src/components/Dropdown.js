@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Modal,
   View,
+  Image,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 
@@ -65,7 +66,10 @@ const Dropdown = ({label, data, onSelect}) => {
       <Text style={styles.buttonText}>
         {(!!selected && selected.label) || label}
       </Text>
-      <Icon style={styles.icon} name="chevron-down" />
+      <Image
+        source={require('./../assets/Shape.png')}
+        style={{marginRight: 20}}
+      />
     </TouchableOpacity>
   );
 };

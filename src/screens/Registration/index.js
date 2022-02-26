@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Dimensions,
+  StatusBar,
 } from 'react-native';
 import AppButton from '../../components/AppButton';
 import styles from '../../Style/styles';
@@ -130,6 +131,7 @@ const Registration = props => {
 
   return (
     <SafeAreaView>
+      <StatusBar backgroundColor={'black'}></StatusBar>
       <CustomeHeader headerText="Registration" />
       <KeyboardAwareScrollView
         extraScrollHeight={0}
