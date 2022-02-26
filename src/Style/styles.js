@@ -4,6 +4,9 @@ import {Dimensions} from 'react-native';
 const {width, fontScale} = Dimensions.get('window');
 
 let styles = StyleSheet.create({
+  bg: {
+    backgroundColor: 'white',
+  },
   appPadding: {
     paddingVertical: 20,
     paddingHorizontal: 20,
