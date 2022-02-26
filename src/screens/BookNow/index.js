@@ -90,6 +90,8 @@ const BookNow = props => {
         <View
           style={{
             alignSelf: 'center',
+            marginTop: '30%',
+            marginBottom: '30%',
           }}>
           <Image source={require('../../assets/Done250.jpg')} />
           <Text
@@ -103,27 +105,27 @@ const BookNow = props => {
           <Text
             style={{
               textAlign: 'center',
-              fontWeight: 'bold',
-              color: 'black',
+              color: 'grey',
             }}>
             Please arrive within 10mins,
           </Text>
           <Text
             style={{
               textAlign: 'center',
-              fontWeight: 'bold',
-              color: 'black',
+              color: 'grey',
             }}>
             or booking will be cancelled automatically
           </Text>
         </View>
 
         <View>
-          <AppButton
-            style={{marginBottom: 20}}
-            text="Back to My Bookings"
-            click={() => props.navigation.navigate('BookNow')}
-          />
+          <View style={{marginBottom: 20}}>
+            <AppButton
+              text="Back to My Bookings"
+              click={() => props.navigation.navigate('BookNow')}
+            />
+          </View>
+
           <AppButton
             text="Done"
             click={() => props.navigation.navigate('Dashboard')}
