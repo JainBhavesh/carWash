@@ -10,6 +10,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import AppButton from '../../components/AppButton';
+import FloatingTextBox from '../../components/FloatingTextBox';
 import styles from '../../Style/styles';
 
 const Login = props => {
@@ -40,15 +41,21 @@ const Login = props => {
             </View>
             <View style={styles._body_view}>
               <Text style={styles.loginTitle}>Login & Register</Text>
-              <View style={styles.SectionStyle}>
-                <TextInput
+              <View>
+                <FloatingTextBox
+                  value={mobileNo}
+                  onChangeText={text => setMobileNo(text)}
+                  keyboardType="phone-pad"
+                  label="Mobile Number"
+                />
+                {/* <TextInput
                   style={styles.textbox}
                   placeholder="Mobile Number"
                   placeholderTextColor="#acabab"
                   keyboardType="phone-pad"
                   value={mobileNo}
                   onChangeText={text => setMobileNo(text)}
-                />
+                /> */}
               </View>
             </View>
             <View style={styles._text_label}>

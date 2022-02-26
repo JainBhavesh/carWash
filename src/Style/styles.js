@@ -15,8 +15,8 @@ let styles = StyleSheet.create({
     paddingTop: 20,
   },
   _logo: {
-    height: 150,
-    width: 150,
+    height: 120,
+    width: 120,
     alignSelf: 'center',
   },
   logo: {
@@ -60,6 +60,11 @@ let styles = StyleSheet.create({
     color: '#777986',
     fontSize: 16,
     marginTop: 30,
+  },
+  picker: {width: '100%', color: 'black'},
+  placeholder: {
+    width: '100%',
+    color: 'grey',
   },
 });
 
