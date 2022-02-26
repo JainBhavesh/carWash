@@ -21,12 +21,13 @@
     "react": "17.0.2",
     "react-native": "0.67.2",
     "react-native-default-preference": "^1.4.3",
+    "react-native-elements": "^3.4.2",
     "react-native-image-picker": "^4.7.3",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-safe-area-context": "^3.4.1",
     "react-native-screens": "^3.12.0",
     "react-native-snackbar": "^2.4.0",
-    "react-native-stepper-ui": "0.0.9"
+    "react-native-vector-icons": "^9.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

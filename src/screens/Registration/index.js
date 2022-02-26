@@ -16,6 +16,7 @@ import FloatingTextBox from '../../components/FloatingTextBox';
 import AppBack from '../../components/AppBack';
 import {Picker} from '@react-native-picker/picker';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import FloatingDropDown from '../../components/FloatingDropdown';
 
 const {height} = Dimensions.get('window');
 
@@ -37,6 +38,11 @@ const Registration = props => {
   ];
   const submit = async () => {};
   const [active, setActive] = useState(0);
+
+  const option = [
+    {label: 'Kwun Tong', value: '1'},
+    {label: 'Kwun Tong', value: '2'},
+  ];
 
   const verification = () => {
     return (
@@ -80,23 +86,19 @@ const Registration = props => {
             label="Lincense No. (eg. AB1234)"
           />
         </View>
-        <View style={{backgroundColor: '#F8F8F8', height: 60, paddingTop: 5}}>
-          <Picker
-            selectedValue={district}
-            style={district == 0 ? styles.placeholder : styles.picker}
-            onValueChange={itemValue => setDistrict(itemValue)}>
-            <Picker.Item label="Living District" value="" />
-            <Picker.Item label="Kwun Tong" value="male" />
-          </Picker>
-        </View>
-        <View style={{marginTop: 20}}>
-          <FloatingTextBox
-            value={licenseNo}
-            onChangeText={text => setLicenseNo(text)}
-            keyboardType="phone-pad"
-            label="Name (eg. Anson Chan)"
-          />
-        </View>
+        <FloatingDropDown
+          selectItem={text => setDistrict(text)}
+          value={district}
+          option={option}
+          label={'Living District'}
+        />
+
+        <FloatingTextBox
+          value={licenseNo}
+          onChangeText={text => setLicenseNo(text)}
+          keyboardType="phone-pad"
+          label="Name (eg. Anson Chan)"
+        />
       </View>
     );
   };
