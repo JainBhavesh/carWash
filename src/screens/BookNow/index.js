@@ -20,13 +20,15 @@ import Stepper from '../../components/Stepper';
 import FloatingTextBox from '../../components/FloatingTextBox';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import FloatingDropDown from '../../components/FloatingDropdown';
+import DateTimePickerComponent from '../../components/DateTimePickerComponent';
 
 const {height} = Dimensions.get('window');
 const BookNow = props => {
   const [branch, setBranch] = useState();
   const [plateNo, setPlateNo] = useState();
-  const [date, setDate] = useState();
+  const [date, setDate] = useState(new Date());
   const [loading, setLoading] = useState(false);
+  const [showDatePicker, setshowDatePicker] = useState(false)
   const MyComponent = props => {
     return (
       <View>
@@ -66,8 +68,16 @@ const BookNow = props => {
     );
   };
 
+  const onDateChange = (date) => {
+    console.log('DATE >>> ', new Date(date));
+    setDate(date)
+    setshowDatePicker(!showDatePicker)
+  }
+
   const dateTime = () => {
+    console.log('date >>>>> ', date);
     return (
+      <>
       <View style={{marginVertical: 40}}>
         <FloatingDropDown
           selectItem={text => setBranch(text)}
@@ -75,16 +85,24 @@ const BookNow = props => {
           option={option}
           label={'Branch'}
         />
-        <View>
+        <TouchableOpacity onPress={() => setshowDatePicker(!showDatePicker)}>
           <TextInput
             style={styles.textbox}
-            placeholder="Date"
+            // placeholder="Date"
             placeholderTextColor="#acabab"
             value={date}
-            onChangeText={text => setDate(text)}
+            // onChangeText={text => setDate(text)}
+            editable={false}
           />
-        </View>
+        </TouchableOpacity>
       </View>
+      {
+        showDatePicker && (
+          <DateTimePickerComponent date={date} onchangeDate={(val) => onDateChange(val)} />
+        )
+      }
+      {/* <DateTimePickerComponent /> */}
+      </>
     );
   };
 
