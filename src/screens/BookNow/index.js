@@ -10,18 +10,19 @@ import {
   StyleSheet,
   Dimensions,
   StatusBar,
+  FlatList,
 } from 'react-native';
 import AppButton from '../../components/AppButton';
 import styles from '../../Style/styles';
 import CustomeHeader from '../../components/CustomeHeader';
-import CustomeHeader_bottom from '../../components/CustomeHeader_bottom';
 import AppBack from '../../components/AppBack';
 import Stepper from '../../components/Stepper';
 import FloatingTextBox from '../../components/FloatingTextBox';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import FloatingDropDown from '../../components/FloatingDropdown';
 import DateTimePickerComponent from '../../components/DateTimePickerComponent';
-import moment from 'moment'
+import moment from 'moment';
+import TimeSlotComponent from '../../components/TimeslotComponent';
 
 const {height} = Dimensions.get('window');
 const BookNow = props => {
@@ -29,7 +30,7 @@ const BookNow = props => {
   const [plateNo, setPlateNo] = useState();
   const [date, setDate] = useState(new Date());
   const [loading, setLoading] = useState(false);
-  const [showDatePicker, setshowDatePicker] = useState(false)
+  const [showDatePicker, setshowDatePicker] = useState(false);
   const MyComponent = props => {
     return (
       <View>
@@ -47,6 +48,58 @@ const BookNow = props => {
   const option = [
     {label: 'Kwun Tong', value: '1'},
     {label: 'Kwun Tong', value: '2'},
+  ];
+  const timeSlot = [
+    {
+      isAvilable: true,
+      time: '09:30',
+      isSelected: true,
+    },
+    {
+      isAvilable: true,
+      time: '10:00',
+      isSelected: false,
+    },
+    {
+      isAvilable: true,
+      time: '10:30',
+      isSelected: false,
+    },
+    {
+      isAvilable: true,
+      time: '11:30',
+      isSelected: false,
+    },
+    {
+      isAvilable: true,
+      time: '12:30',
+      isSelected: false,
+    },
+    {
+      isAvilable: false,
+      time: '13:30',
+      isSelected: false,
+    },
+    {
+      isAvilable: true,
+      time: '14:30',
+      isSelected: false,
+    },
+    {
+      isAvilable: false,
+      time: '09:30',
+      isSelected: false,
+    },
+    {
+      isAvilable: true,
+      time: '15:30',
+      isSelected: false,
+    },
+    {
+      isAvilable: true,
+      time: '16:30',
+      isSelected: false,
+    },
   ];
   const basicInfo = () => {
     return (
@@ -69,38 +122,65 @@ const BookNow = props => {
     );
   };
 
-  const onDateChange = (date) => {
-    setDate(date)
-    setshowDatePicker(!showDatePicker)
-  }
+  const onDateChange = date => {
+    setDate(date);
+    setshowDatePicker(!showDatePicker);
+  };
 
   const dateTime = () => {
     return (
       <>
-      <View style={{marginVertical: 40}}>
-        <FloatingDropDown
-          selectItem={text => setBranch(text)}
-          value={branch}
-          option={option}
-          label={'Branch'}
-        />
-        <TouchableOpacity onPress={() => setshowDatePicker(!showDatePicker)}>
-          <TextInput
-            style={styles.textbox}
-            // placeholder="Date"
-            placeholderTextColor="#acabab"
-            value={moment(date).format('DD-MM-YYYY')}
-            // onChangeText={text => setDate(text)}
-            editable={false}
+        <View style={{marginVertical: 40}}>
+          <FloatingDropDown
+            selectItem={text => setBranch(text)}
+            value={branch}
+            option={option}
+            label={'Branch'}
           />
-        </TouchableOpacity>
-      </View>
-      {
-        showDatePicker && (
-          <DateTimePickerComponent date={date} onchangeDate={(val) => onDateChange(val)} />
-        )
-      }
-      {/* <DateTimePickerComponent /> */}
+          <TouchableOpacity onPress={() => setshowDatePicker(!showDatePicker)}>
+            {/* <TextInput
+              style={styles.textbox}
+              // placeholder="Date"
+              placeholderTextColor="#acabab"
+              value={moment(date).format('DD-MM-YYYY')}
+              // onChangeText={text => setDate(text)}
+              editable={false}
+            /> */}
+            <FloatingTextBox
+              value={moment(date).format('DD-MM-YYYY')}
+              onChangeText={text => setDate(text)}
+              label="Date"
+              editable={false}
+            />
+          </TouchableOpacity>
+          <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+            <View
+              style={{
+                height: 20,
+                width: 20,
+                backgroundColor: '#fff',
+                marginRight: 5,
+              }}></View>
+            <Text style={{color: '#000', marginRight: 30}}>Available</Text>
+            <View
+              style={{
+                height: 20,
+                width: 20,
+                backgroundColor: '#BDBDBD',
+                marginRight: 5,
+              }}></View>
+            <Text style={{color: '#000'}}>Full</Text>
+          </View>
+
+          <TimeSlotComponent timeSlot={timeSlot} />
+        </View>
+        {showDatePicker && (
+          <DateTimePickerComponent
+            date={date}
+            onchangeDate={val => onDateChange(val)}
+          />
+        )}
+        {/* <DateTimePickerComponent /> */}
       </>
     );
   };
@@ -139,7 +219,7 @@ const BookNow = props => {
     );
   };
   return (
-    <SafeAreaView style={{backgroundColor: 'black'}}>
+    <SafeAreaView>
       <StatusBar backgroundColor={'black'}></StatusBar>
       <CustomeHeader
         headerText="Booking: Pure-hand Car Wash"
@@ -148,7 +228,7 @@ const BookNow = props => {
       <KeyboardAwareScrollView
         extraScrollHeight={0}
         keyboardShouldPersistTaps="handled"
-        contentContainerStyle={{height: height - 80, backgroundColor: '#fff'}}>
+        contentContainerStyle={{height: height - 80}}>
         <View style={[styles.appPadding, {marginVertical: 30}]}>
           <Stepper active={active} content={content} />
           {active == 0 && basicInfo()}

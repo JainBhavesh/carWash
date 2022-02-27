@@ -1,18 +1,12 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {
-  View,
-  StyleSheet,
-  TextInput,
-  Text,
-  Animated,
-  Pressable,
-} from 'react-native';
+import {View, StyleSheet, TextInput, Text, Animated} from 'react-native';
 
 const FloatingTextBox = props => {
   const [value, setValue] = useState('');
   const moveText = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
+    if (props.value) setValue(props.value);
     if (value !== '') {
       moveTextTop();
     } else if (value === '') {
@@ -85,6 +79,7 @@ const FloatingTextBox = props => {
         onFocus={onFocusHandler}
         onBlur={onBlurHandler}
         blurOnSubmit
+        {...props}
       />
     </View>
   );

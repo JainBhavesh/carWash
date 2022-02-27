@@ -5,10 +5,10 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 const DateTimePickerComponent = props => {
   const {date, onchangeDate} = props;
 
-  const onChange = (event, selectedDate) => {       
-      if (selectedDate !== undefined) {
-        onchangeDate(selectedDate);
-      }
+  const onChange = (event, selectedDate) => {
+    if (selectedDate !== undefined) {
+      onchangeDate(selectedDate);
+    }
   };
   return (
     <DateTimePicker
@@ -16,7 +16,6 @@ const DateTimePickerComponent = props => {
       mode={'date'}
       display="default"
       onChange={onChange}
-      
     />
   );
 };
