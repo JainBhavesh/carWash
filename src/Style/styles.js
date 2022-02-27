@@ -57,6 +57,7 @@ let styles = StyleSheet.create({
     color: '#777986',
     fontSize: 17,
     padding: 20,
+    color: '#000'
   },
 
   privacy: {

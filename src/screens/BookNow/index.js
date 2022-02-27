@@ -21,6 +21,7 @@ import FloatingTextBox from '../../components/FloatingTextBox';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import FloatingDropDown from '../../components/FloatingDropdown';
 import DateTimePickerComponent from '../../components/DateTimePickerComponent';
+import moment from 'moment'
 
 const {height} = Dimensions.get('window');
 const BookNow = props => {
@@ -69,13 +70,11 @@ const BookNow = props => {
   };
 
   const onDateChange = (date) => {
-    console.log('DATE >>> ', new Date(date));
     setDate(date)
     setshowDatePicker(!showDatePicker)
   }
 
   const dateTime = () => {
-    console.log('date >>>>> ', date);
     return (
       <>
       <View style={{marginVertical: 40}}>
@@ -90,7 +89,7 @@ const BookNow = props => {
             style={styles.textbox}
             // placeholder="Date"
             placeholderTextColor="#acabab"
-            value={date}
+            value={moment(date).format('DD-MM-YYYY')}
             // onChangeText={text => setDate(text)}
             editable={false}
           />
