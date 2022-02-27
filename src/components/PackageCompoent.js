@@ -3,25 +3,28 @@ import {Text, TouchableOpacity, StyleSheet, View, Image} from 'react-native';
 
 const PackageComponent = props => {
   const {text, image, category, price, period, click} = props;
-  useEffect(() => {
-    console.log('Packages => ', text);
-  });
+
   return (
     <View style={styles.card}>
       <TouchableOpacity onPress={click}>
-        <Text style={styles.text}>{text}</Text>
+        <Text style={[styles.text, period && styles.bordered]}>{text}</Text>
         <View
           style={{
             flex: 1,
             flexDirection: 'row',
             justifyContent: 'space-between',
+            marginBottom: 10,
           }}>
           <Image
             source={image}
             style={{marginRight: 20, height: 60, width: 60}}
           />
           <View
-            style={{flexDirection: 'column', justifyContent: 'space-around'}}>
+            style={{
+              flexDirection: 'column',
+              justifyContent: 'space-around',
+              marginRight: 10,
+            }}>
             <View>
               <Text style={styles.category}>{category}</Text>
             </View>
@@ -29,6 +32,9 @@ const PackageComponent = props => {
           </View>
         </View>
       </TouchableOpacity>
+      {period != '' && (
+        <Text style={styles.period}>Valid Period: {period}</Text>
+      )}
     </View>
   );
 };
@@ -39,7 +45,7 @@ const styles = StyleSheet.create({
     color: '#24253D',
     fontSize: 17,
     padding: 20,
-    marginBottom: 5,
+    marginBottom: 10,
   },
   price: {
     fontSize: 24,
@@ -55,7 +61,18 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: 'white',
-    padding: 10,
+    marginBottom: 20,
+  },
+  bordered: {
+    borderBottomWidth: 2,
+    borderStyle: 'dashed',
+  },
+  period: {
+    backgroundColor: '#E0E0E1',
+    paddingVertical: 4,
+    paddingHorizontal: 10,
+    color: '#000',
+    fontWeight: '700',
   },
 });
 

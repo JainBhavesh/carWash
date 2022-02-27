@@ -228,7 +228,10 @@ const BookNow = props => {
       <KeyboardAwareScrollView
         extraScrollHeight={0}
         keyboardShouldPersistTaps="handled"
-        contentContainerStyle={{height: height - 80}}>
+        contentContainerStyle={{
+          height: height - 80,
+          backgroundColor: active == 2 && '#fff',
+        }}>
         <View style={[styles.appPadding, {marginVertical: 30}]}>
           <Stepper active={active} content={content} />
           {active == 0 && basicInfo()}

@@ -10,7 +10,7 @@ import {
 import CustomeHeader from '../../components/CustomeHeader';
 import PackageComponent from '../../components/PackageCompoent';
 import styles from './styles';
-import productImage from '../../assets/Done250.jpg';
+import productImage from '../../assets/package.png';
 
 const Explore = props => {
   const [active, setActive] = useState(0);
@@ -20,7 +20,14 @@ const Explore = props => {
       image: productImage,
       category: 'Hot',
       price: '1000',
-      period: '12 Month',
+      period: '',
+    },
+    {
+      text: '10* Pure-hand Car Wash Package ($220 @1) - Small Car ',
+      image: productImage,
+      category: 'Hot',
+      price: '1000',
+      period: '12 Months',
     },
   ];
 
