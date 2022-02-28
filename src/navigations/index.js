@@ -145,6 +145,11 @@ const Navigation = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Dashboard"
+          component={HomeTabs}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name="Login"
           component={Login}
           options={{headerShown: false}}
@@ -152,21 +157,6 @@ const Navigation = () => {
         <Stack.Screen
           name="BookNow"
           component={BookNow}
-          options={{headerShown: false}}
-        />
-        {/* <Stack.Screen
-          name="Booking_Thank_You"
-          component={Booking_Thank_You}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Booking_Date_Time"
-          component={Booking_Date_Time}
-          options={{headerShown: false}}
-        /> */}
-        <Stack.Screen
-          name="Dashboard"
-          component={HomeTabs}
           options={{headerShown: false}}
         />
         <Stack.Screen

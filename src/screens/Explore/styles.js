@@ -1,5 +1,6 @@
 import {StyleSheet, Dimensions} from 'react-native';
-const {height} = Dimensions.get('window');
+const {height, fontScale} = Dimensions.get('window');
+
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
@@ -23,6 +24,29 @@ const styles = StyleSheet.create({
   appPadding: {
     paddingHorizontal: 20,
     paddingVertical: 20,
+  },
+  selected: {
+    backgroundColor: 'black',
+    color: '#a58430',
+    width: 80,
+    textAlign: 'center',
+    padding: 5 / fontScale,
+    borderWidth: 0.5,
+    borderColor: 'black',
+    fontSize: 10 / fontScale,
+    borderRadius: 2,
+  },
+  link: {
+    backgroundColor: 'white',
+    color: 'black',
+    width: 80,
+    textAlign: 'center',
+    padding: 5,
+    borderWidth: 0.5,
+    borderColor: 'black',
+    fontSize: 10 / fontScale,
+    borderRadius: 2,
+    fontWeight: 'bold',
   },
 });
 

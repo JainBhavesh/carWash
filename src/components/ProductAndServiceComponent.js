@@ -1,30 +1,31 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Text, TouchableOpacity, StyleSheet, View, Image} from 'react-native';
 
-const PackageComponent = props => {
-  const {text, image, category, price, period, click} = props;
+const ProductAndServiceComponent = props => {
+  const {text, image, category, price, click} = props;
 
   return (
     <View style={styles.card}>
-      <TouchableOpacity onPress={click} style={{padding: 10}}>
-        <Text style={[styles.text, period && styles.bordered]}>{text}</Text>
+      <TouchableOpacity onPress={click}>
         <View
           style={{
             flex: 1,
             flexDirection: 'row',
             justifyContent: 'space-between',
-            marginBottom: 10,
           }}>
           <Image
             source={image}
-            style={{marginRight: 20, height: 60, width: 60}}
+            style={{marginRight: 10, height: 106, width: 106}}
           />
           <View
             style={{
+              flex: 1,
               flexDirection: 'column',
               marginRight: 10,
               alignItems: 'flex-end',
             }}>
+            <Text style={[styles.text]}>{text}</Text>
+
             <View>
               <Text style={styles.category}>{category}</Text>
             </View>
@@ -32,9 +33,6 @@ const PackageComponent = props => {
           </View>
         </View>
       </TouchableOpacity>
-      {period != '' && (
-        <Text style={styles.period}>Valid Period: {period}</Text>
-      )}
     </View>
   );
 };
@@ -44,11 +42,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#24253D',
     fontSize: 17,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-    marginBottom: 10,
     lineHeight: 25,
     letterSpacing: 0.22,
+    flexWrap: 'wrap',
+    marginBottom: 5,
+    height: 50,
+    alignSelf: 'flex-start',
   },
   price: {
     fontSize: 24,
@@ -66,18 +65,8 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: 'white',
     marginBottom: 20,
-  },
-  bordered: {
-    borderBottomWidth: 2,
-    borderStyle: 'dashed',
-  },
-  period: {
-    backgroundColor: '#E0E0E1',
-    paddingVertical: 4,
-    paddingHorizontal: 10,
-    color: '#000',
-    fontWeight: '700',
+    padding: 10,
   },
 });
 
-export default PackageComponent;
+export default ProductAndServiceComponent;
