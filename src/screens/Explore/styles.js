@@ -1,5 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native';
-const {height, fontScale} = Dimensions.get('window');
+const {fontScale} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   safeAreaView: {
